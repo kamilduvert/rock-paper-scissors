@@ -13,6 +13,9 @@ const Result = ({ score, setScore, playerChoice }) => {
     // Set initial winning result to false
     const [result, setResult] = useState('');
 
+    // Set timer to 3 to get 3*500ms of total interval
+    const [counter, setCounter] = useState(3);
+
     // Function that sets the computer choice based on a random number between 0 and 2
     const randomCpuChoice = () => {
         const choices = ['rock', 'paper', 'scissors'];
@@ -22,8 +25,16 @@ const Result = ({ score, setScore, playerChoice }) => {
 
     // When the component loads it sets the computer's choice
     useEffect(() => {
-        randomCpuChoice()
-    }, [])
+        // Before getting the computer's choice there is a 3s delay
+        const timer = counter > 0 ? setInterval(() => {
+            setCounter(counter - 1);
+        }, 500) : randomCpuChoice();
+
+        // and then it clears the timer
+        return () => {
+            clearInterval(timer);
+        }
+    }, [counter, cpuChoice])
 
     // Function that sets the result according to the different outcomes
     const getResult = () => {
@@ -58,24 +69,33 @@ const Result = ({ score, setScore, playerChoice }) => {
     useEffect(() => {
         getResult()
     }, [cpuChoice])
-        
+
     return (
         <section className='result'>
             <div className='result__column'>
                 <h3 className='result__column__text'>You picked</h3>
-                <div className={`result__icon result__icon--${playerChoice} ${result === "You Win" ? `result__icon--${playerChoice}--winner` : ''}`}></div>
+                <div className={`result__icon result__icon--${playerChoice} ${result === 'You Win' ? `result__icon--${playerChoice}--winner` : ''}`}></div>
             </div>
-            <div className='result__column result__game'>
+            {cpuChoice && (<div className='result__column result__game'>
                 <p className='result__game__text'>{`${result}`}</p>
-                <Link to='' className='result__game__again' onClick={() => setCpuChoice('')}>
-                    Play Again
+                <Link 
+                    to=''
+                    className='result__game__again'
+                    onClick={() => {
+                        setCpuChoice('');
+                    }}
+                >
+                Play Again
                 </Link>
+            </div>)}
+            <div className="result__column">
+                <h3 className='result__column__text'>The computer Picked</h3>
+                {counter == 0 ? (
+                    <div className={`result__icon result__icon--${cpuChoice} ${result === 'You Lose' ? `result__icon--${cpuChoice}--winner` : ''}`}></div>
+                ) : (
+                        <div className="result__counter">{counter}</div>
+                    )}
             </div>
-            <div className='result__column'>
-                <h3 className='result__column__text'>Computer picked</h3>
-                <div className={`result__icon result__icon--${cpuChoice} ${result === "You Lose" ? `result__icon--${cpuChoice}--winner` : ''}`}></div>
-            </div>
-            
         </section>
     );
 }

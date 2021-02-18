@@ -31,6 +31,10 @@ const App = () => {
         </Route>
       </Switch>
       <Footer/>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Kamil Duvert</a>.
+      </div>
     </div>
     </>
   );
