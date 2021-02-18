@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 // Components
 import Header from './components/Header';
 import Play from './components/Play';
-import Game from './components/Game';
+import Result from './components/Result';
 import Footer from './components/Footer';
 import Modal from './components/Modal';
 
@@ -25,8 +25,8 @@ const App = () => {
         <Route exact path='/'>
           <Play setPlayerChoice={setPlayerChoice} />
         </Route>
-        <Route path='/game'>
-          <Game playerChoice={playerChoice} score={score} setScore={setScore} />
+        <Route path='/result'>
+          <Result playerChoice={playerChoice} score={score} setScore={setScore} />
         </Route>
       </Switch>
     </div>
