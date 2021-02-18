@@ -1,0 +1,80 @@
+@import '/src/styles/index.scss';
+@import '/src/styles/mixins';
+
+.result {
+    display: flex;
+    margin-top: 5*$gutter;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+
+        &__text {
+            font-size: $font-size-small;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-bottom: 2.5*$gutter;
+        }
+    }
+
+    &__game {
+        margin: 0 4*$gutter;
+
+        &__text {
+            text-transform: uppercase;
+            font-size: $font-size-xlarge;
+            font-weight: 700;
+            margin-bottom: 1.5*$gutter;
+        }
+
+        &__again {
+            color: $dark-text;
+            background-color: #fff;
+            text-transform: uppercase;
+            padding: $gutter 2*$gutter;
+            border-radius: 5px;
+            letter-spacing: 0.15*$gutter;
+            transition: all 0.25s;
+
+            &:hover {
+                color: $light-text;
+                background-color: $header-outline;
+            }
+        }
+    }
+
+    &__icon {
+        height: 250px;
+        width: 250px;
+        border-radius: 50%;
+        border-color: transparent;
+        border: 25px solid;
+        background-size: 50%;
+
+        &--paper {
+            @include icon($image-paper, $color-paper);
+
+            &--winner{
+                @include winnerShadow($color-paper);
+                }
+        }
+
+        &--rock {
+            @include icon($image-rock, $color-rock);
+
+            &--winner{
+                @include winnerShadow($color-rock);
+                }
+        }
+        
+        &--scissors {
+            @include icon($image-scissors, $color-scissors);
+
+            &--winner{
+                @include winnerShadow($color-scissors);
+                }
+        }
+    }
+}

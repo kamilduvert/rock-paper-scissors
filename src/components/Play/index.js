@@ -18,19 +18,13 @@ const Play = ({ setPlayerChoice }) => {
             <img src={Triangle} alt="triangle-shaped background" className='play__triangle' />
             <div className='play__icons'>
                 <Link to='/result'>
-                    <div id='paper' onClick={handleClick} className='play__icon play__icon--paper'>
-                        
-                    </div>
+                    <div id='paper' onClick={handleClick} className='play__icon play__icon--paper'></div>
                 </Link>
                 <Link to='/result'>
-                    <div id='rock' onClick={handleClick} className='play__icon play__icon--rock'>
-                        
-                    </div>
+                    <div id='rock' onClick={handleClick} className='play__icon play__icon--rock'></div>
                 </Link>
                 <Link to='/result'>
-                    <div id='scissors' onClick={handleClick} className='play__icon play__icon--scissors'>
-                        
-                    </div>
+                    <div id='scissors' onClick={handleClick} className='play__icon play__icon--scissors'></div>
                 </Link>
             </div>
         </section>

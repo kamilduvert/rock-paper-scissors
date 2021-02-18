@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { getRandomInt } from '../../utils/getRandomInt';
 
+import './result.scss';
+
 const Result = ({ score, setScore, playerChoice }) => {
 
     // Set initial computer's choice to an empty string
@@ -27,28 +29,28 @@ const Result = ({ score, setScore, playerChoice }) => {
     const getResult = () => {
         if (playerChoice === 'rock' && cpuChoice === 'scissors') {
             // Play wins!
-            setResult("win");
+            setResult("You Win");
             // score gets incremented by 1
             setScore(score + 1);
         } else if (playerChoice === 'rock' && cpuChoice === 'paper') {
             // Play loses...
-            setResult("lose");
+            setResult("You Lose");
             // score gets decremented by 1
             setScore(score - 1);
         } else if (playerChoice === 'scissors' && cpuChoice === 'paper') {
-            setResult("win");
+            setResult("You Win");
             setScore(score + 1);
         } else if (playerChoice === 'scissors' && cpuChoice === 'rock') {
-            setResult("lose");
+            setResult("You Lose");
             setScore(score - 1);
         } else if (playerChoice === 'paper' && cpuChoice === 'rock') {
-            setResult("win");
+            setResult("You Win");
             setScore(score + 1);
         } else if (playerChoice === 'paper' && cpuChoice === 'scissors') {
-            setResult("lose");
+            setResult("You Lose");
             setScore(score - 1);
         } else {
-            setResult("draw");
+            setResult("Draw");
         }
     }
 
@@ -58,23 +60,25 @@ const Result = ({ score, setScore, playerChoice }) => {
     }, [cpuChoice])
         
     return (
-        <section className="result">
-            <div>my choice:{playerChoice}</div>
-            <div>computer's choice: {cpuChoice}</div>
-            <div>Result:
-            {/* Conditional rendering depending on result outcome */}
-                {result === "win" && <h2>You Win!</h2>}
-                {result === "lose" && <h2>You Lose...</h2>}
-                {result === "draw" && <h2>It's a Draw</h2>}
+        <section className='result'>
+            <div className='result__column'>
+                <h3 className='result__column__text'>You picked</h3>
+                <div className={`result__icon result__icon--${playerChoice} ${result === "You Win" ? `result__icon--${playerChoice}--winner` : ''}`}></div>
             </div>
-
-            {/* Link to reset computer's choice and bring back to homepage */}
-            <Link to='/' onClick={()=> setCpuChoice('')}>
-                Play Again
-            </Link>
-
+            <div className='result__column result__game'>
+                <p className='result__game__text'>{`${result}`}</p>
+                <Link to='' className='result__game__again' onClick={() => setCpuChoice('')}>
+                    Play Again
+                </Link>
+            </div>
+            <div className='result__column'>
+                <h3 className='result__column__text'>Computer picked</h3>
+                <div className={`result__icon result__icon--${cpuChoice} ${result === "You Lose" ? `result__icon--${cpuChoice}--winner` : ''}`}></div>
+            </div>
+            
         </section>
     );
 }
 
 export default Result;
+

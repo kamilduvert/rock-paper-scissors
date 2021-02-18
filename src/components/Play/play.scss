@@ -4,7 +4,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 8rem;
+    margin-top: 8*$gutter;
     position: relative;
 
     &__triangle {
@@ -23,15 +23,13 @@
     &__icon {
         height: 160px;
         width: 160px;
-        transition: transform .5s;
+        border: 18px solid;
+        border-radius: 50%;
+        transition: transform .2s;
 
         &--paper {
-            background: #fff url($image-paper) no-repeat center;
-            border: 18px solid $color-paper;
-            border-radius: 50%;
-            background-size: 50%;
+            @include icon($image-paper, $color-paper);
             transform: translateX(30%);
-            box-shadow: inset 0px 5px 6px grey, 0px 8px darken($color-paper, 15%);
             
             &:hover {
                 transform: translateX(30%) scale(1.1);
@@ -39,24 +37,16 @@
 
         }
         &--rock {
-            background: #fff url($image-rock) no-repeat center;
-            border: 18px solid $color-rock;
-            border-radius: 50%;
-            background-size: 50%;
+            @include icon($image-rock, $color-rock);
             transform: translateY(115%);
-            box-shadow: inset 0px 5px 6px grey, 0px 8px darken($color-rock, 15%);
 
             &:hover {
                 transform: translateY(115%) scale(1.1);
             } 
         }
         &--scissors {
-            background: #fff url($image-scissors) no-repeat center;
-            border: 18px solid $color-scissors;
-            border-radius: 50%;
-            background-size: 50%; 
+            @include icon($image-scissors, $color-scissors);
             transform: translateX(-30%);
-            box-shadow: inset 0px 5px 6px grey, 0px 8px darken($color-scissors, 15%); 
 
             &:hover {
                 transform: translateX(-30%) scale(1.1);
