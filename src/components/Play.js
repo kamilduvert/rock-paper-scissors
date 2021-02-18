@@ -16,12 +16,12 @@ const Play = ({ setPlayerChoice }) => {
                 </div>
             </Link>
             <Link to='/result'>
-                <div id='rock' onClick={handleClick} className='icon icon--scissors'>
+                <div id='scissors' onClick={handleClick} className='icon icon--scissors'>
                     scissors
                 </div>
             </Link>
             <Link to='/result'>
-                <div id='scissors' onClick={handleClick} className='icon icon--rock'>
+                <div id='rock' onClick={handleClick} className='icon icon--rock'>
                     rock
                 </div>
             </Link>

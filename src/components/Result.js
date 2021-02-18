@@ -8,9 +8,9 @@ const Result = ({ score, setScore, playerChoice }) => {
     const [cpuChoice, setCpuChoice] = useState('');
 
     // Set initial winning result to false
-    const [isWin, setIsWin] = useState(false);
+    const [result, setResult] = useState('');
 
-    // Function that will set the computer choice based on a random number between 0 and 2
+    // Function that sets the computer choice based on a random number between 0 and 2
     const randomCpuChoice = () => {
         const choices = ['rock', 'paper', 'scissors'];
         const randomInt = getRandomInt(0, 3);
@@ -22,10 +22,50 @@ const Result = ({ score, setScore, playerChoice }) => {
         randomCpuChoice()
     }, [])
 
+    // Function that sets the result according to the different outcomes
+    const getResult = () => {
+        if (playerChoice === 'rock' && cpuChoice === 'scissors') {
+            // Play wins!
+            setResult("win");
+            // score gets incremented by 1
+            setScore(score + 1);
+        } else if (playerChoice === 'rock' && cpuChoice === 'paper') {
+            // Play loses...
+            setResult("lose");
+            // score gets decremented by 1
+            setScore(score - 1);
+        } else if (playerChoice === 'scissors' && cpuChoice === 'paper') {
+            setResult("win");
+            setScore(score + 1);
+        } else if (playerChoice === 'scissors' && cpuChoice === 'rock') {
+            setResult("lose");
+            setScore(score - 1);
+        } else if (playerChoice === 'paper' && cpuChoice === 'rock') {
+            setResult("win");
+            setScore(score + 1);
+        } else if (playerChoice === 'paper' && cpuChoice === 'scissors') {
+            setResult("lose");
+            setScore(score - 1);
+        } else {
+            setResult("draw");
+        }
+    }
+
+    // When the computer's choice is set it calls the getResultFunction 
+    useEffect(() => {
+        getResult()
+    }, [cpuChoice])
+        
     return (
         <div className="result">
-            my choice:{playerChoice} <br/>
-            computer's choice: {cpuChoice}
+            <div>my choice:{playerChoice}</div>
+            <div>computer's choice: {cpuChoice}</div>
+            <div>Result:
+                {result === "win" && <h2>You Win!</h2>}
+                {result === "lose" && <h2>You Lose...</h2>}
+                {result === "draw" && <h2>It's a Draw</h2>}
+            </div>
+
         </div>
     );
 }
