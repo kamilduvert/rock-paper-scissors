@@ -5,9 +5,10 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Play from './components/Play';
 import Result from './components/Result';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import Modal from './components/Modal';
 
+import './app.scss';
 
 const App = () => {
 
@@ -19,7 +20,7 @@ const App = () => {
 
   return (
     <>
-    <div className='container'>
+    <div className='app'>
       <Header score={score} />
       <Switch>
         <Route exact path='/'>

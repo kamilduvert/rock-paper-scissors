@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { getRandomInt } from '../utils/getRandomInt';
+import { getRandomInt } from '../../utils/getRandomInt';
 
 const Result = ({ score, setScore, playerChoice }) => {
 
