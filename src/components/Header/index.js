@@ -4,7 +4,7 @@ import './header.scss';
 
 const Header = ({ score }) => {
     return (
-        <div className='header'>
+        <header className='header'>
             <h1 className='header__title'>
                 <span>rock</span>
                 <span>paper</span>
@@ -14,7 +14,7 @@ const Header = ({ score }) => {
                 <span className='header__score__subtitle'>Score</span>
                 <span className='header__score__value'>{score}</span>
             </div>
-        </div>
+        </header>
     );
 }
 

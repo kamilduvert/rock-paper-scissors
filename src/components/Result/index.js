@@ -58,7 +58,7 @@ const Result = ({ score, setScore, playerChoice }) => {
     }, [cpuChoice])
         
     return (
-        <div className="result">
+        <section className="result">
             <div>my choice:{playerChoice}</div>
             <div>computer's choice: {cpuChoice}</div>
             <div>Result:
@@ -73,7 +73,7 @@ const Result = ({ score, setScore, playerChoice }) => {
                 Play Again
             </Link>
 
-        </div>
+        </section>
     );
 }
 

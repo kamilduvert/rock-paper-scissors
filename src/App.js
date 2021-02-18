@@ -30,8 +30,8 @@ const App = () => {
           <Result playerChoice={playerChoice} score={score} setScore={setScore} />
         </Route>
       </Switch>
+      <Footer/>
     </div>
-    <Footer/>
     </>
   );
 }

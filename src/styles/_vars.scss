@@ -2,9 +2,9 @@
 
 // Colors
 
-$Scissors-gradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-$Paper-gradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
-$Rock-gradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+$color-scissors: hsl(39, 89%, 49%);
+$color-paper: hsl(230, 89%, 62%);
+$color-rock: hsl(349, 71%, 52%);
 
 // Text
 
@@ -15,14 +15,14 @@ $header-outline: hsl(217, 16%, 45%);
 
 // Background
 
-$background-gradient: radial-gradient(circle at center, hsl(214, 47%, 23%),hsl(237, 49%, 15%));
+$background-gradient: radial-gradient(circle at top, hsl(214, 47%, 23%),hsl(237, 49%, 15%));
 
 // Media Queries
 
 $mobile: 375px;
 $desktop: 1366px;
 
-// ================= Other styles ===================================
+// ================= Other styles ===============================
 
 $gutter: 1rem;
 
@@ -30,3 +30,7 @@ $font-size-small: 1.5rem;
 $font-size-medium: 2rem;
 $font-size-large: 3rem;
 $font-size-xlarge: 4rem;
+
+$image-paper: '/src/images/icon-paper.svg';
+$image-rock: '/src/images/icon-rock.svg';
+$image-scissors: '/src/images/icon-scissors.svg';
