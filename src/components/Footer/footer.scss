@@ -1,0 +1,37 @@
+@import '/src/styles/index.scss';
+
+.footer {
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__attribution {
+        margin-left: 2*$gutter;
+
+        & a {
+            color: hsl(228, 47%, 55%);
+        }
+    }
+
+    &__rules {
+        display: block;
+        font-size: $font-size-small;
+        margin-right: 2*$gutter;
+        border-radius: 5px;
+        border: 3px solid $header-outline;
+        color: $header-outline;
+        background: none;
+        font-weight: 600;
+        letter-spacing: 2px;
+        outline: none;
+        padding: 0.25*$gutter 1.5*$gutter;
+
+        &:hover {
+            background-color: $header-outline;
+            color: $dark-text;
+            cursor: pointer;
+        }
+    }
+}

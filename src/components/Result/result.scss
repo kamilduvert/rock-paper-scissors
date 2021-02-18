@@ -3,7 +3,6 @@
 
 .result {
     display: flex;
-    margin-top: 5*$gutter;
     flex-wrap: nowrap;
     align-items: center;
 
@@ -21,7 +20,6 @@
     }
 
     &__game {
-        margin: 0 4*$gutter;
 
         &__text {
             text-transform: uppercase;
