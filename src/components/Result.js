@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { getRandomInt } from '../utils/getRandomInt';
 
@@ -61,10 +62,16 @@ const Result = ({ score, setScore, playerChoice }) => {
             <div>my choice:{playerChoice}</div>
             <div>computer's choice: {cpuChoice}</div>
             <div>Result:
+            {/* Conditional rendering depending on result outcome */}
                 {result === "win" && <h2>You Win!</h2>}
                 {result === "lose" && <h2>You Lose...</h2>}
                 {result === "draw" && <h2>It's a Draw</h2>}
             </div>
+
+            {/* Link to reset computer's choice and bring back to homepage */}
+            <Link to='/' onClick={()=> setCpuChoice('')}>
+                Play Again
+            </Link>
 
         </div>
     );
