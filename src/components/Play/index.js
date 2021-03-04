@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './play.scss';
 
@@ -29,6 +30,10 @@ const Play = ({ setPlayerChoice }) => {
             </div>
         </section>
     )
+};
+
+Play.propTypes = {
+    setPlayerChoice: PropTypes.func.isRequired
 }
 
 export default Play;

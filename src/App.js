@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 // Components
 import Header from './components/Header';
 import Play from './components/Play';
 import Result from './components/Result';
 import Footer from './components/Footer/Footer';
-import Modal from './components/Modal';
 
-import './app.scss';
+// Styles
+import './styles/index.scss';
 
 const App = () => {
 
-  // Set initial score to 0
-  const [score, setScore] = useState(0);
+  // Set initial scores to 0
+  const [playerScore, setPlayerScore] = useState(0);
+  const [cpuScore, setCpuScore] = useState(0);
 
   // Set initial player's choice to an empty string
   const [playerChoice, setPlayerChoice] = useState('');
@@ -21,19 +22,31 @@ const App = () => {
   return (
     <>
     <div className='app'>
-      <Header score={score} />
+      <Header 
+        playerScore={playerScore} 
+        cpuScore={cpuScore}
+      />
       <Switch>
         <Route exact path='/'>
-          <Play setPlayerChoice={setPlayerChoice} />
+          <Play 
+            setPlayerChoice={setPlayerChoice} />
         </Route>
         <Route path='/result'>
-          <Result playerChoice={playerChoice} score={score} setScore={setScore} />
+          {playerChoice ? <Result 
+            playerChoice={playerChoice}
+            playerScore={playerScore}
+            setPlayerScore={setPlayerScore} 
+            cpuScore={cpuScore} 
+            setCpuScore={setCpuScore}
+            />
+          : <Redirect to='/' />
+          }
         </Route>
       </Switch>
       <Footer/>
     </div>
     </>
   );
-}
+};
 
-export default App
+export default App;
