@@ -14,8 +14,8 @@ const Footer = () => {
         <>
         <footer className='footer'>
             <div className='footer__attribution'>
-                Challenge by <a href='https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH' target='_blank'>Frontend Mentor</a>.
-                 Coded by <a href='#'>Kamil Duvert</a>.
+                Challenge by <a href='https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH' target='_blank'>Frontend Mentor</a> -
+                 Coded by <a href='https://github.com/kamilduvert/rock-paper-scissors-react'>Kamil</a>
             </div>
             <button className='footer__rules' onClick={toggleModal}>Rules</button>
         </footer>

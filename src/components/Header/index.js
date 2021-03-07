@@ -11,14 +11,17 @@ const Header = ({ playerScore, cpuScore }) => {
                 <span>paper</span>
                 <span>scissors</span>
             </h1>
-            <div className='header__score__container'>
-                <span className='header__score__subtitle'>PLAYER</span>
-                <span className='header__score__value'>{playerScore}</span>
+            <div className='header__score'>
+                <div className='header__score__container'>
+                    <span className='header__score__subtitle'>PLAYER</span>
+                    <span className='header__score__value'>{playerScore}</span>
+                </div>
+                <div className='header__score__container'>
+                    <span className='header__score__subtitle'>COMPUTER</span>
+                    <span className='header__score__value'>{cpuScore}</span>
+                </div>
             </div>
-            <div className='header__score__container'>
-                <span className='header__score__subtitle'>COMPUTER</span>
-                <span className='header__score__value'>{cpuScore}</span>
-            </div>
+
         </header>
     );
 };

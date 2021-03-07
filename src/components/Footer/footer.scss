@@ -4,11 +4,14 @@
     width: 100vw;
     height: 10vh;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 1*$gutter;
 
     &__attribution {
-        margin-left: 2*$gutter;
+        margin: 1.5*$gutter;
+        font-size: $font-size-xsmall;
 
         & a {
             color: hsl(228, 47%, 55%);
@@ -17,8 +20,8 @@
 
     &__rules {
         display: block;
-        font-size: $font-size-small;
-        margin-right: 2*$gutter;
+        font-size: $font-size-xsmall;
+        margin: 0 1.5*$gutter;
         border-radius: 5px;
         border: 3px solid $header-outline;
         color: $header-outline;
@@ -34,4 +37,21 @@
             cursor: pointer;
         }
     }
+}
+
+@media screen and (min-width: 768px) {
+    .footer {
+        flex-direction: row;
+    
+        &__attribution {
+            font-size: $font-size-small;
+            margin: 1.5*$gutter;
+    
+        }
+    
+        &__rules {
+            font-size: $font-size-small;
+        }
+    }
+
 }

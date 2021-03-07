@@ -3,46 +3,90 @@
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    border: 3px solid $header-outline;
+    border: 1px solid $header-outline;
     max-width: 700px;
-    width: 100%;
-
-    margin-top: 2*$gutter;
+    width: 70%;
+    margin-top: 1*$gutter;
     padding: 1.5*$gutter;
     border-radius: $gutter;
 
 
     &__title {
-        font-size: $font-size-large;
+        font-size: $font-size-small;
         font-weight: 700;
         text-transform: uppercase;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
         line-height: 0.80;
+        margin-bottom: $gutter;
+
+        & span {
+            display: inline-block;
+            margin: 0 2px; 
+        }
     }
 
     &__score {
+        display: flex;
+        justify-content: space-between;
         &__container {
-            width: 100px;
+            width: 50px;
             display: flex;
             flex-direction: column;
+            align-items: center;
             background-color: $light-text;
-            padding: 1*$gutter 2.5*$gutter;
+            padding: 0.5*$gutter 1.5*$gutter;
+            margin: 0 1*$gutter;
             color: $score-text;
             border-radius: 5px;
         }
 
         &__subtitle {
             color: $dark-text;
-            font-size: $font-size-small
         }
 
         &__value {
-            font-size: $font-size-xlarge;
+            font-size: $font-size-medium;
             font-weight: 700
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        border: 3px solid $header-outline;
+        max-width: 700px;
+        width: 80%;
+        margin: 2.5*$gutter 0;
+
+        &__title {
+            font-size: $font-size-large;
+            flex-direction: column;
+        }
+
+        &__score {
+            &__container {
+                width: 70px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 1*$gutter 2.5*$gutter;
+            }
+
+            &__subtitle {
+                font-size: $font-size-small;
+            }
+
+            &__value {
+                font-size: $font-size-xlarge;
+            }
         }
     }
 }
