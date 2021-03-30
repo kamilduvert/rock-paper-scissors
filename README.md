@@ -14,7 +14,8 @@ Just a simple "Rock, Paper, Scissors" game created with React.js.
 * Webpack config from [createapp.dev](https://createapp.dev/)
 * Responsive and Mobile-first
 
-Empty project.
+## Preview
+![react-rock-paper-scissors](https://github.com/kamilduvert/rock-paper-scissors/blob/main/screenshot.png)
 
 ## Building and running on localhost
 
